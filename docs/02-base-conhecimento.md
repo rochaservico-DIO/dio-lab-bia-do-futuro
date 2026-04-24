@@ -2,17 +2,12 @@
 
 ## Dados Utilizados
 
-Descreva se usou os arquivos da pasta `data`, por exemplo:
-
-| Arquivo | Formato | Utilização no Agente |
+| Arquivo | Formato | para que serve no Edu? |
 |---------|---------|---------------------|
-| `historico_atendimento.csv` | CSV | Contextualizar interações anteriores |
-| `perfil_investidor.json` | JSON | Personalizar recomendações |
-| `produtos_financeiros.json` | JSON | Sugerir produtos adequados ao perfil |
-| `transacoes.csv` | CSV | Analisar padrão de gastos do cliente |
-
-> [!TIP]
-> **Quer um dataset mais robusto?** Você pode utilizar datasets públicos do [Hugging Face](https://huggingface.co/datasets) relacionados a finanças, desde que sejam adequados ao contexto do desafio.
+| `historico_atendimento.csv` | CSV | Contextualizar interações anteriores, ou seja, dar continuidade de forma mais eficiente |
+| `perfil_investidor.json` | JSON | Personalizar as explicações sobre as duvidas e necessidades de aprendizado do cliente. |
+| `produtos_financeiros.json` | JSON | conhecer os produtos disponíveis para que eles possam ser ensinados ao cliente. |
+| `transacoes.csv` | CSV | Analisar padrão de gastos do cliente e usar informações de forma didática|
 
 ---
 
@@ -20,7 +15,7 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 
 > Você modificou ou expandiu os dados mockados? Descreva aqui.
 
-[Sua descrição aqui]
+O produto Fundo (FII) substituiu o Fundo Multimercado, pois pessoalmente me sinto mais confiante em usar apenas produtos financeiros que eu conheço. Assim, poderei validar as respostas do Edu de forma mais assertiva.
 
 ---
 
@@ -29,7 +24,23 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 ### Como os dados são carregados?
 > Descreva como seu agente acessa a base de conhecimento.
 
-[ex: Os JSON/CSV são carregados no início da sessão e incluídos no contexto do prompt]
+Existem duas possibilidades, injetar os dados diretamente no prompt (ctrl + c, ctrl + v) ou carregar os arquivos via código, como no exemplo abaixo:  
+
+```python
+import pandas as pd
+import json
+
+#CSVs
+historico - pd.read_csv('data/historico_atendimento.csv')
+transacoes - pd.read_csv(data/transacoes.csv')
+
+#JSONs
+with open('data/perfil_investidor.json', 'r', encoding='utf-8') as f:
+    perfil - json.load(f)
+
+with open(data/produto_financeiros.json', 'r', encoding='utf-8') as f:
+    produtos - json.load(f)
+```
 
 ### Como os dados são usados no prompt?
 > Os dados vão no system prompt? São consultados dinamicamente?
