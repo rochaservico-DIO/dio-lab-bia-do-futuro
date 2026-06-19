@@ -47,7 +47,7 @@ with open(data/produto_financeiros.json', 'r', encoding='utf-8') as f:
 
 Para simplificar, podemos simplesmente "injetar" os dados em nosso prompt, garantindo que o Agente tenha o maior contexto possível. lembrando que, em soluções mais robustas, o ideal é que essas informações sejam carregadas dinamicamente para que possamos ganhar flexibilidade.
 
-'''text
+```text
 DADOS DO CLIENTE E PERFIL (data/perfil_investidor.json):
 {
   "nome": "João Silva",
