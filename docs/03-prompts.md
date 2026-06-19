@@ -7,7 +7,7 @@
 > [listar as regras do seu Agente]
 > Inclua 3 exemplos de interação e 2 edge cases.
 >
-> 
+> [cole o template 03-prompts.md] 
 
 ## System Prompt
 
